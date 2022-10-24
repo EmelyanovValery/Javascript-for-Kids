@@ -11,7 +11,8 @@
         "программа",
         "макака",
         "прекрасный",
-        "оладушек"
+        "оладушек",
+        "дом"
     ];
     let randomWord = words[Math.floor(Math.random() * words.length)];
     let answerArray=[];
@@ -21,14 +22,14 @@
     let remainingLetters = randomWord.length;
     while (remainingLetters>0){
         alert(answerArray.join(" "));
-        let guess=prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+        let guess=prompt("Угадайте букву или нажмите Отмена для выхода из игры.").toLowerCase();
         if (guess === null){
             break;
         }  else if (guess.length !==1){
             alert("Пожалуйста, введите только одну букву.");
         } else {
             for (let j=0;j<randomWord.length;j++){
-                if (guess=== randomWord[j]){
+                if (guess===randomWord[j] && answerArray[j]==="_"){
                     answerArray[j]=guess;
                     remainingLetters--;
                 }
