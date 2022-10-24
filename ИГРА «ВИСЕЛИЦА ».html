@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let words = [
+        "программа",
+        "макака",
+        "прекрасный",
+        "оладушек"
+    ];
+    let randomWord = words[Math.floor(Math.random() * words.length)];
+    let answerArray=[];
+    for (let i=0;i<randomWord.length;i++){
+        answerArray[i]="_";
+    }
+    let remainingLetters = randomWord.length;
+    while (remainingLetters>0){
+        alert(answerArray.join(" "));
+        let guess=prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+        if (guess === null){
+            break;
+        }  else if (guess.length !==1){
+            alert("Пожалуйста, введите только одну букву.");
+        } else {
+            for (let j=0;j<randomWord.length;j++){
+                if (guess=== randomWord[j]){
+                    answerArray[j]=guess;
+                    remainingLetters--;
+                }
+            }
+        }
+    }
+    alert(answerArray.join(" "));
+    alert("Отлично! Было загадано слово "+randomWord);
+</script>
+</html>

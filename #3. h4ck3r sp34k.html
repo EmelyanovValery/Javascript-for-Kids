@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = "javascript is awesome";
+    let output = "";
+    let word = {
+        a: "4",
+        e: "3",
+        i: "1",
+        o: "0",
+    }
+    for (let i = 0; i < input.length; i++) {
+        if (word[input[i]] != undefined) {
+            output += word[input[i]];
+        } else {
+            output += input[i];
+        }
+    }
+    console.log(output);
+</script>
+</body>
+</html>
