@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    HI!!!
+</h1>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+    let leftOffset = 0;
+    let topOffset = 0;
+
+    function moveSquare() {
+        if (leftOffset < 200 && topOffset === 0) {
+            $("h1").offset({
+                left:leftOffset
+            })
+            leftOffset++;
+        } else if (leftOffset === 200 && topOffset < 200) {
+            $("h1").offset({
+                top:topOffset
+            })
+            topOffset++;
+        } else if (leftOffset > 0 && topOffset === 200) {
+            $("h1").offset({
+                left:leftOffset
+            })
+            leftOffset--;
+        } else {
+            $("h1").offset({
+                top:topOffset
+            })
+            topOffset--;
+        }
+    }
+
+    setInterval(moveSquare, 30)
+</script>
+</body>
+</html>

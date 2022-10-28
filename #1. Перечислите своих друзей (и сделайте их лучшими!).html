@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Тест делея</h2>
+<h1>Привет, мир!</h1>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+    let myFrandsName = ["Миша", "Леша", "Егор", "Антон", "Никита"];
+    $("h1").text("Мои друзья");
+    for (let i = 0; i < 5; i++) {
+        $("body").append(`<p> ${myFrandsName[i]}`).hide().fadeIn(2000);
+    }
+    $("p").append(" Лучший");
+    for (let i = 1; i <= 5; i++) {
+        $("h1").fadeOut(500*i).fadeIn(500*i);
+    }
+    $("h2").fadeOut(1000).delay(5000).fadeIn(1000);
+
+</script>
+</html>
