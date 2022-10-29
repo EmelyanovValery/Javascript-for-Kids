@@ -6,38 +6,59 @@
 </head>
 <body>
 <h1>
-    HI!!!
+    Score:
 </h1>
+<h2>
+    HI!!!
+</h2>
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script>
     let leftOffset = 0;
     let topOffset = 0;
+    let clickInEl = 0;
+    let needClicInEl = 5;
+    let moveEl = "h2";
 
-    function moveSquare() {
+    function moveSquare(elMove) {
         if (leftOffset < 200 && topOffset === 0) {
-            $("h1").offset({
-                left:leftOffset
+            $(elMove).offset({
+                left: leftOffset
             })
             leftOffset++;
         } else if (leftOffset === 200 && topOffset < 200) {
-            $("h1").offset({
-                top:topOffset
+            $(elMove).offset({
+                top: topOffset
             })
             topOffset++;
         } else if (leftOffset > 0 && topOffset === 200) {
-            $("h1").offset({
-                left:leftOffset
+            $(elMove).offset({
+                left: leftOffset
             })
             leftOffset--;
         } else {
-            $("h1").offset({
-                top:topOffset
+            $(elMove).offset({
+                top: topOffset
             })
             topOffset--;
         }
     }
 
-    setInterval(moveSquare, 30)
+    function stopMove(event) {
+        clearInterval(moveId);
+    }
+
+    let moveId = setInterval(moveSquare, 120, moveEl);
+    $("h2").click(stopMove);
+    $(moveEl).click(function () {
+        clickInEl++;
+        $("h1").text(`Score: ${clickInEl}`);
+        moveId = setInterval(moveSquare, 120 / clickInEl, moveEl);
+        if (clickInEl >  needClicInEl) {
+            $("h1").text(`Score: ${clickInEl} Ты победил`);
+            $("h2").click(stopMove);
+        }
+    })
+
 </script>
 </body>
 </html>
